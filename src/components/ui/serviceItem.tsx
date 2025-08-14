@@ -146,8 +146,8 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 
   // Garantizar que el skeleton no dure para siempre
   useEffect(() => {
-    const minDelay = setTimeout(() => setMinimumDelayPassed(true), 1000); // 1 segundo mínimo
-    const maxLoadTime = setTimeout(() => setImageLoaded(true), 2000); // Máximo 3 segundos de espera
+    const minDelay = setTimeout(() => setMinimumDelayPassed(true), 1000); 
+    const maxLoadTime = setTimeout(() => setImageLoaded(true), 2000); 
 
     return () => {
       clearTimeout(minDelay);

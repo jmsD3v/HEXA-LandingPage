@@ -55,11 +55,23 @@ import { Icon } from '@iconify/react';
 import NavLinks from './navLinks';
 import { useState } from 'react';
 
-export default function SheetItem() {
+interface SheetItemProps {
+  onServiceClick: (service: { title: string; description: string }) => void;
+}
+
+export default function SheetItem({ onServiceClick }: SheetItemProps) {
   const [open, setOpen] = useState(false);
 
   const handleLinkClick = () => {
-    setOpen(false); 
+    setOpen(false);
+  };
+
+  const handleServiceClickAndClose = (service: {
+    title: string;
+    description: string;
+  }) => {
+    onServiceClick(service);
+    setOpen(false);
   };
 
   return (
@@ -77,11 +89,12 @@ export default function SheetItem() {
               HEXA
             </SheetTitle>
             <SheetDescription asChild>
-              {/* Wrapped ul with nav for semantic navigation */}
               <nav>
                 <ul className='flex flex-col gap-5'>
-                  <NavLinks onLinkClick={handleLinkClick} />{' '}
-                  {/* Changed Li to NavLinks and passed onLinkClick */}
+                  <NavLinks
+                    onLinkClick={handleLinkClick}
+                    onServiceClick={handleServiceClickAndClose}
+                  />
                 </ul>
               </nav>
             </SheetDescription>

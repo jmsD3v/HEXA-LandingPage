@@ -40,7 +40,7 @@ const ServicesSection: React.FC<ServicesSectionProps> = () => {
 
         {/* Col - 3 */}
         <ServiceItem
-          title='Infraestructura Eléctrica'
+          title='Infraestructura Eléctrica Industrial'
           description={`Realizamos proyectos, obras y servicios de infraestructura eléctrica industrial, realizamos los reportes necesarios para el correcto funcionamiento de planta y cumplir con las mediciones de PAT necesarias. Algunos de los servicios que realizamos: \n
           * Montaje e instalación de grupos electrógenos.
           * arranque suavizado (físicos o electrónicos).
@@ -70,23 +70,11 @@ const ServicesSection: React.FC<ServicesSectionProps> = () => {
         />
         {/* Col - 6 */}
         <ServiceItem
-          title='Automatización y Control'
-          description='Diseñamos e implementamos sistemas de automatización para plantas industriales, integrando sensores, PLCs, interfaces HMI y monitoreo remoto. Mejoramos procesos para reducir errores humanos y aumentar la eficiencia.'
-          imageSrc='paneles2.jpg'
-          imageAlt='Panel de automatización industrial'
-          isReversed
-        />
-        {/* Col - 7 */}
-        <ServiceItem
-          title='Trámites y Habilitaciones Técnicas'
-          description='Brindamos soporte completo en la gestión de permisos, habilitaciones eléctricas, presentación de planos, memorias técnicas y toda la documentación requerida por entes reguladores y distribuidoras.'
-          imageSrc='paneles3.jpg'
-          imageAlt='Firma de documentos técnicos'
-        />
-        {/* Col - 8 */}
-        <ServiceItem
-          title='Infrastructura de Redes'
-          description='Diseñamos e implementamos redes de datos y telecomunicaciones, asegurando una conectividad robusta y segura. Realizamos auditorías de red, instalación de cableado estructurado y configuración de equipos de red.'
+          title='Informática e Infraestructura de Redes'
+          description={`Provisión de equipamiento – instalación y puesta en funcionamiento de sistemas de comunicación, conectividad y transmisión de datos. \n
+          * Sistemas de LAN internas en redes cerradas y abiertas.
+          * Sistemas de almacenamientos de datos – DATA CENTER – con respaldo y autonomía. 
+          * Servidores en línea con gestión intermedia de respaldo físico.`}
           imageSrc='infraRed.jpeg'
           imageAlt='Torres de telecomunicaciones y redes'
           isReversed

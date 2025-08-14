@@ -8,13 +8,12 @@ export default function hero() {
       <Header />
       <section
         className='flex max-md:flex-col h-screen justify-center items-center relative'
-        
       >
         <div className='absolute inset-0 z-0'>
           {' '}
           {/* agregado para que la imagen se quede atrás */}
           <Image
-            src='/paneles4.jpg'
+            src='/hero.png'
             alt='paneles solares'
             fill
             priority
