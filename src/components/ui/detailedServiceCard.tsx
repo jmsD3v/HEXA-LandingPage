@@ -6,13 +6,15 @@ import {
   CardTitle,
   CardFooter,
 } from '@/components/ui/card';
-import { projectManagementModalData } from '../../data/projectManagementModalData';
+import { detailedServiceData } from '../../data/detailedServiceData';
 
-interface ProjectManagementCardProps {
-  cardData: (typeof projectManagementModalData)[0];
+type CardData = (typeof detailedServiceData)['Gestión de Proyectos'][0];
+
+interface DetailedServiceCardProps {
+  cardData: CardData;
 }
 
-const ProjectManagementCard: React.FC<ProjectManagementCardProps> = ({
+const DetailedServiceCard: React.FC<DetailedServiceCardProps> = ({
   cardData,
 }) => {
   return (
@@ -49,4 +51,4 @@ const ProjectManagementCard: React.FC<ProjectManagementCardProps> = ({
   );
 };
 
-export default ProjectManagementCard;
+export default DetailedServiceCard;

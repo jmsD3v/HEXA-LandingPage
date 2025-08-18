@@ -6,17 +6,21 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from './carousel';
-import ProjectManagementCard from './projectManagementCard';
-import { projectManagementModalData } from '../../data/projectManagementModalData';
+import DetailedServiceCard from './detailedServiceCard';
 import type { EmblaOptionsType } from 'embla-carousel';
+import { detailedServiceData } from '@/data/detailedServiceData';
 
-interface ProjectManagementCarouselProps {
+type ServiceData = (typeof detailedServiceData)['Gestión de Proyectos'];
+
+interface DetailedServiceCarouselProps {
   options?: EmblaOptionsType;
+  data: ServiceData;
 }
 
-const ProjectManagementCarousel: React.FC<ProjectManagementCarouselProps> = (
+const DetailedServiceCarousel: React.FC<DetailedServiceCarouselProps> = (
   props
 ) => {
+  const { data } = props;
   const emblaOptions: EmblaOptionsType = {
     loop: true,
     align: 'start',
@@ -32,12 +36,12 @@ const ProjectManagementCarousel: React.FC<ProjectManagementCarouselProps> = (
     <div className='embla text-white embla-container-responsive'>
       <Carousel opts={emblaOptions} autoplayOptions={autoplayPluginOptions}>
         <CarouselContent>
-          {projectManagementModalData.map((cardData, index) => (
+          {data.map((cardData, index) => (
             <CarouselItem
               key={index}
               className='p-4 basis-full md:basis-1/2 lg:basis-1/2'
             >
-              <ProjectManagementCard cardData={cardData} />
+              <DetailedServiceCard cardData={cardData} />
             </CarouselItem>
           ))}
         </CarouselContent>
@@ -48,4 +52,4 @@ const ProjectManagementCarousel: React.FC<ProjectManagementCarouselProps> = (
   );
 };
 
-export default ProjectManagementCarousel;
+export default DetailedServiceCarousel;

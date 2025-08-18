@@ -1,7 +1,8 @@
 import * as Dialog from '@radix-ui/react-dialog';
 import ServiceCarousel from './serviceCarousel';
-import ProjectManagementCarousel from './projectManagementCarousel';
+import DetailedServiceCarousel from './detailedServiceCarousel';
 import { services } from '../../data/services';
+import { detailedServiceData } from '../../data/detailedServiceData';
 
 interface ServiceModalProps {
   service: (typeof services)[0] | null;
@@ -18,7 +19,8 @@ export default function ServiceModal({
     return null;
   }
 
-  const isProjectManagement = service.title === 'Gestión de Proyectos';
+  const serviceDetails =
+    detailedServiceData[service.title as keyof typeof detailedServiceData];
 
   return (
     <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
@@ -28,8 +30,8 @@ export default function ServiceModal({
           <Dialog.Title className='text-3xl font-bold text-teal-500 mb-4'>
             {service.title}
           </Dialog.Title>
-          {isProjectManagement ? (
-            <ProjectManagementCarousel />
+          {serviceDetails ? (
+            <DetailedServiceCarousel data={serviceDetails} />
           ) : (
             <ServiceCarousel selectedService={service} />
           )}
