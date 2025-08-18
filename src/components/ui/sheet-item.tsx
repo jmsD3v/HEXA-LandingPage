@@ -54,9 +54,10 @@ import {
 import { Icon } from '@iconify/react';
 import NavLinks from './navLinks';
 import { useState } from 'react';
+import { services } from '@/data/services';
 
 interface SheetItemProps {
-  onServiceClick: (service: { title: string; description: string }) => void;
+  onServiceClick: (service: (typeof services)[0]) => void;
 }
 
 export default function SheetItem({ onServiceClick }: SheetItemProps) {
@@ -66,10 +67,7 @@ export default function SheetItem({ onServiceClick }: SheetItemProps) {
     setOpen(false);
   };
 
-  const handleServiceClickAndClose = (service: {
-    title: string;
-    description: string;
-  }) => {
+  const handleServiceClickAndClose = (service: (typeof services)[0]) => {
     onServiceClick(service);
     setOpen(false);
   };

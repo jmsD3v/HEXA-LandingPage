@@ -3,7 +3,6 @@
 import AboutUs from '@/components/sections/aboutUs';
 import Contact from '@/components/sections/contact';
 import Hero from '@/components/sections/hero';
-import Projects from '@/components/projects/projects';
 import ScrollToTop from '@/components/ui/scroll-to-top';
 import WhyUs from '@/components/sections/whyUs';
 import { social } from '@/data/social';
