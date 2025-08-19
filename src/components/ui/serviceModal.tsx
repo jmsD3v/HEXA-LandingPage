@@ -26,7 +26,7 @@ export default function ServiceModal({
     <Dialog.Root open={isOpen} onOpenChange={onOpenChange}>
       <Dialog.Portal>
         <Dialog.Overlay className='bg-black/80 fixed inset-0 z-50' />
-        <Dialog.Content className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-900 border border-gray-700 p-8 rounded-xl shadow-lg text-white max-w-4xl w-full z-50'>
+        <Dialog.Content className='fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-gray-900 border border-gray-700 p-8 rounded-xl shadow-lg text-white w-[90%] md:max-w-4xl z-50'>
           <Dialog.Title className='text-3xl font-bold text-teal-500 mb-4'>
             {service.title}
           </Dialog.Title>
@@ -35,11 +35,13 @@ export default function ServiceModal({
           ) : (
             <ServiceCarousel selectedService={service} />
           )}
-          <Dialog.Close asChild>
-            <button className='mt-8 w-full bg-teal-600 text-white font-semibold py-3 rounded-lg hover:bg-teal-700 transition'>
-              Cerrar
-            </button>
-          </Dialog.Close>
+          <div className='flex justify-center mt-8'>
+            <Dialog.Close asChild>
+              <button className='bg-teal-600 text-white font-semibold py-2 px-8 rounded-lg hover:bg-teal-700 transition'>
+                Cerrar
+              </button>
+            </Dialog.Close>
+          </div>
         </Dialog.Content>
       </Dialog.Portal>
     </Dialog.Root>
