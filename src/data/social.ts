@@ -4,11 +4,6 @@ const encodedMessage = encodeURIComponent(message);
 
 export const social = [
   {
-    name: 'Linkedin',
-    href: 'https://www.linkedin.com/in/hexa',
-    icon: 'mdi:linkedin',
-  },
-  {
     name: 'Github',
     href: 'https://github.com/hexa',
     icon: 'mdi:github',
@@ -17,11 +12,6 @@ export const social = [
     name: 'Whatsapp',
     href: `https://wa.me/${phone}?text=${encodedMessage}`,
     icon: 'mdi:whatsapp',
-  },
-  {
-    name: 'Facebook',
-    href: 'https://www.facebook.com/hexa',
-    icon: 'mdi:facebook',
   },
   {
     name: 'Instagram',
