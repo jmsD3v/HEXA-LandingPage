@@ -2,31 +2,79 @@ export const services = [
   {
     title: 'Gestión de Proyectos',
     description:
-      'Instalación y mantenimiento de paneles solares y sistemas de energía renovable para un futuro más sostenible.',
+      'Ofrecemos una gestión integral de proyectos, desde la planificación hasta la ejecución, asegurando el cumplimiento de los plazos y la calidad en cada etapa. Nuestro equipo de expertos se encarga de coordinar todos los recursos para garantizar el éxito de tu proyecto.',
+    image: '/gestionProyectos.jpeg',
+    features: [
+      'Planificación y Control',
+      'Gestión de Riesgos',
+      'Coordinación de Equipos',
+      'Optimización de Recursos',
+      'Informes de Avance',
+    ],
   },
   {
     title: 'Generación SFV',
     description:
-      'Sistemas de climatización eficientes para el confort de tu hogar o negocio, garantizando la temperatura ideal todo el año.',
+      'Diseñamos e instalamos sistemas de generación de energía solar fotovoltaica (SFV) a medida, tanto para uso residencial como industrial. Aprovecha la energía del sol para reducir tu huella de carbono y tus costos de electricidad.',
+    image: '/paneles.jpg',
+    features: [
+      'Diseño Personalizado',
+      'Instalación Profesional',
+      'Mantenimiento y Monitoreo',
+      'Sistemas On-Grid y Off-Grid',
+      'Ahorro Energético',
+    ],
   },
   {
     title: 'Inf. Eléctrica Industrial',
     description:
-      'Diseño, ejecución y mantenimiento de proyectos eléctricos de baja y media tensión, cumpliendo con las normativas vigentes.',
+      'Realizamos el diseño, montaje y mantenimiento de infraestructuras eléctricas industriales de baja y media tensión. Garantizamos la seguridad y eficiencia de tus instalaciones, cumpliendo con las normativas más exigentes.',
+    image: '/eTcentral.jpeg',
+    features: [
+      'Diseño de Tableros Eléctricos',
+      'Montaje de Canalizaciones',
+      'Puesta a Tierra',
+      'Corrección del Factor de Potencia',
+      'Certificaciones',
+    ],
   },
   {
     title: 'Frio Industrial',
     description:
-      'Construcción y remodelación de obras civiles, desde pequeñas reformas hasta proyectos de mayor envergadura.',
+      'Proveemos soluciones completas en refrigeración industrial, incluyendo el diseño, instalación y mantenimiento de cámaras frigoríficas, túneles de congelación y sistemas de refrigeración para procesos industriales. Aseguramos la cadena de frío y la eficiencia energética.',
+    image: '/cold-room.jpg',
+    features: [
+      'Cámaras Frigoríficas',
+      'Túneles de Congelación',
+      'Sistemas de Refrigeración',
+      'Eficiencia Energética',
+      'Mantenimiento Especializado',
+    ],
   },
   {
     title: 'Climatización',
     description:
-      'Asesoramiento técnico y consultoría en todas nuestras áreas de especialización, para que tomes las mejores decisiones.',
+      'Instalamos sistemas de climatización central e individual para todo tipo de edificaciones. Ofrecemos soluciones eficientes y confortables que se adaptan a tus necesidades, garantizando la calidad del aire interior y el máximo confort.',
+    image: '/climatizacion.jpeg',
+    features: [
+      'Sistemas VRV y VRF',
+      'Chillers y Fan Coils',
+      'Calefacción Central',
+      'Ventilación y Extracción',
+      'Control de Humedad',
+    ],
   },
   {
     title: 'Informática',
     description:
-      'Planes de mantenimiento preventivo y correctivo para garantizar el óptimo funcionamiento de tus instalaciones.',
+      'Brindamos soluciones informáticas integrales para empresas, desde la gestión de redes y servidores hasta el desarrollo de software a medida. Nuestro objetivo es optimizar tus procesos y garantizar la seguridad de tu información.',
+    image: '/instalador-solar.png',
+    features: [
+      'Administración de Redes',
+      'Soporte Técnico',
+      'Seguridad Informática',
+      'Desarrollo de Software',
+      'Consultoría IT',
+    ],
   },
 ];

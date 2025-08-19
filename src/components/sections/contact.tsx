@@ -149,6 +149,8 @@
 'use client'; // Required for useState and event handlers
 
 import { useState, FormEvent } from 'react';
+import { social } from '@/data/social';
+import { Icon } from '@iconify/react';
 
 export default function Contact() {
   const [name, setName] = useState('');
@@ -246,31 +248,24 @@ export default function Contact() {
                 <span className='text-xl text-gray-400'>✉️</span>
                 <div>
                   <p className='font-semibold'>Email:</p>
-                  <p className='text-gray-400'>support@hexa.tech</p>
+                  <p className='text-gray-400'>contacto@hexaservicios.com</p>
                 </div>
               </div>
             </div>
 
             {/*<!-- Social Icons -->*/}
             <div className='mt-6 flex justify-center lg:justify-start gap-4'>
-              <a
-                href='#'
-                className='group relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-900 text-neutral-200 hover:w-36 transition-all overflow-hidden'
-              >
-                <span className='hidden group-hover:inline whitespace-nowrap mr-2'>
-                  LinkedIn
-                </span>
-                💼
-              </a>
-              <a
-                href='#'
-                className='group relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-700 text-neutral-200 hover:w-36 transition-all overflow-hidden'
-              >
-                <span className='hidden group-hover:inline whitespace-nowrap mr-2'>
-                  Facebook
-                </span>
-                📘
-              </a>
+              {social.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  className='text-neutral-200 hover:text-purple-500 transition-colors'
+                >
+                  <Icon icon={item.icon} className='size-8' />
+                </a>
+              ))}
             </div>
           </div>
 

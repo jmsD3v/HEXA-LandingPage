@@ -1,4 +1,7 @@
 import { NextResponse } from 'next/server';
+import { Resend } from 'resend';
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function POST(request: Request) {
   try {
@@ -14,9 +17,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // Basic email format validation
-    // This is a simple regex and might not cover all valid/invalid email cases.
-    // For production, consider a more robust validation library.
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       return NextResponse.json(
         { message: 'Validation failed: Invalid email format.' },
@@ -24,25 +24,37 @@ export async function POST(request: Request) {
       );
     }
 
-    // TODO: Implement actual email sending logic here.
-    // Example: using Nodemailer, SendGrid, Resend, etc.
-    // For now, just log the data to the server console.
-    console.log('Contact form submission received:');
-    console.log('Name:', name);
-    console.log('Email:', email);
-    console.log('Phone:', phone || 'Not provided'); // Handle optional phone
-    console.log('Message:', message);
+    const emailHtml = `
+      <div>
+        <h1>Nuevo mensaje de contacto de HesaServicios.com</h1>
+        <p><strong>Nombre:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        <p><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</p>
+        <hr>
+        <h2>Mensaje:</h2>
+        <p>${message}</p>
+      </div>
+    `;
 
-    // Simulate email sending delay (optional)
-    // await new Promise(resolve => setTimeout(resolve, 1000));
+    const { data, error } = await resend.emails.send({
+      from: 'Hesa Servicios <web@hexaservicios.com>',
+      to: ['contacto@hexaservicios.com'],
+      subject: `Nuevo mensaje de contacto de: ${name}`,
+      html: emailHtml,
+      reply_to: email,
+    });
+
+    if (error) {
+      console.error('Error sending email with Resend:', error);
+      return NextResponse.json({ message: 'Error sending email.', error }, { status: 500 });
+    }
 
     return NextResponse.json(
-      { message: 'Message received successfully!' },
+      { message: 'Message sent successfully!', data },
       { status: 200 }
     );
   } catch (error) {
     console.error('Error processing contact form:', error);
-    // It's good practice not to expose detailed error messages to the client in production
     return NextResponse.json(
       { message: 'Internal Server Error. Failed to process message.' },
       { status: 500 }
