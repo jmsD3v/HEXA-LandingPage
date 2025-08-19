@@ -41,7 +41,7 @@ export async function POST(request: Request) {
       to: ['contacto@hexaservicios.com'],
       subject: `Nuevo mensaje de contacto de: ${name}`,
       html: emailHtml,
-      reply_to: email,
+      replyTo: email,
     });
 
     if (error) {
