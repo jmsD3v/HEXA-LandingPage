@@ -14,7 +14,7 @@ export default function hero() {
           {/* agregado para que la imagen se quede atrás */}
           <Image
             src='/hero.png'
-            alt='paneles solares'
+            alt='Instalación de paneles solares en un techo'
             fill
             priority
             quality={80}
@@ -25,7 +25,7 @@ export default function hero() {
           {' '}
           <img
             src='/logo-HEXA-hero.png'
-            alt='perfil'
+            alt='Logo de HEXA Servicios Integrales'
             className='invert w-40 sm:w-48 md:w-56 lg:w-60 mx-auto md:mr-10 lg:mr-10 aspect-square object-contain'
             data-aos='fade-up'
             data-aos-delay='200'
