@@ -92,6 +92,7 @@ export default function SheetItem({ onServiceClick }: SheetItemProps) {
                   <NavLinks
                     onLinkClick={handleLinkClick}
                     onServiceClick={handleServiceClickAndClose}
+                    className='w-full'
                   />
                 </ul>
               </nav>

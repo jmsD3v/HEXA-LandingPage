@@ -142,7 +142,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   const [minimumDelayPassed, setMinimumDelayPassed] = useState(false);
 
   const imageOrderClasses = isReversed ? 'md:order-last' : '';
-  const textPaddingClasses = 'md:p-4 p-0';
+  const textPaddingClasses = 'p-4 md:p-4';
 
   // Garantizar que el skeleton no dure para siempre
   useEffect(() => {
@@ -198,7 +198,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             <h2 className='text-3xl font-semibold text-gray-900 dark:text-white text-center'>
               {title}
             </h2>
-            <p className='text-md text-center mt-4 whitespace-pre-line leading-tight [&>br]:mb-1 [&>br]:mt-1'>
+            <p className='text-sm md:text-md text-center mt-4 whitespace-pre-line leading-tight [&>br]:mb-1 [&>br]:mt-1'>
               {description}
             </p>
           </>

@@ -39,7 +39,7 @@ const DetailedServiceCarousel: React.FC<DetailedServiceCarouselProps> = (
           {data.map((cardData, index) => (
             <CarouselItem
               key={index}
-              className='p-4 basis-full md:basis-1/2 lg:basis-1/2'
+              className='p-4 basis-full sm:basis-1/2'
             >
               <DetailedServiceCard cardData={cardData} />
             </CarouselItem>

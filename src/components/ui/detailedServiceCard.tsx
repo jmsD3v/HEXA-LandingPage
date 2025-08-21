@@ -20,19 +20,19 @@ const DetailedServiceCard: React.FC<DetailedServiceCardProps> = ({
   return (
     <Card className='h-full max-w-sm mx-auto bg-white/5 backdrop-blur-md border border-white/10 shadow-lg flex flex-col'>
       <CardHeader>
-        <CardTitle className='text-xl font-bold text-teal-400'>
+        <CardTitle className='text-lg sm:text-xl font-bold text-teal-400'>
           {cardData.title}
         </CardTitle>
-        <CardDescription className='text-gray-300 italic'>
+        <CardDescription className='text-sm sm:text-base text-gray-300 italic'>
           {cardData.subtitle}
         </CardDescription>
       </CardHeader>
       <CardContent className='flex-grow'>
-        <p className='text-gray-300 mb-4 text-balance'>
+        <p className='text-sm sm:text-base text-gray-300 mb-4 text-balance'>
           {cardData.description}
         </p>
         {cardData.features.length > 0 && (
-          <ul className='list-disc list-inside text-gray-300 space-y-1'>
+          <ul className='text-sm sm:text-base list-disc list-inside text-gray-300 space-y-1'>
             {cardData.features.map((feature, featureIndex) => (
               <li key={featureIndex}>{feature}</li>
             ))}
@@ -41,7 +41,7 @@ const DetailedServiceCard: React.FC<DetailedServiceCardProps> = ({
       </CardContent>
       {cardData.objective && (
         <CardFooter>
-          <p className='text-sm text-teal-300/80 font-semibold'>
+          <p className='text-xs sm:text-sm text-teal-300/80 font-semibold'>
             <span className='font-bold text-teal-300'>Objetivo:</span>{' '}
             {cardData.objective}
           </p>

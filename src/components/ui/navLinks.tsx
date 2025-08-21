@@ -3,14 +3,18 @@ import Link from 'next/link';
 import { services } from '@/data/services';
 import { ChevronDown } from 'lucide-react';
 
+import { cn } from '@/lib/utils';
+
 interface NavLinksProps {
   onLinkClick?: () => void;
   onServiceClick: (service: (typeof services)[0]) => void;
+  className?: string;
 }
 
 export default function NavLinks({
   onLinkClick,
   onServiceClick,
+  className,
 }: NavLinksProps) {
   const handleLinkClick = () => {
     if (onLinkClick) {
@@ -37,7 +41,12 @@ export default function NavLinks({
               <ChevronDown className='text-neutral-200' size={16} />
             </button>
           </DropdownMenu.Trigger>
-          <DropdownMenu.Content className='bg-gray-800 border border-gray-700 text-white p-2 rounded-md shadow-lg min-w-[220px]'>
+          <DropdownMenu.Content
+            className={cn(
+              'bg-gray-800 border border-gray-700 text-white p-2 rounded-md shadow-lg',
+              className
+            )}
+          >
             <DropdownMenu.Arrow className='fill-current text-gray-800' />
             {services.map((service, index) => (
               <DropdownMenu.Item
