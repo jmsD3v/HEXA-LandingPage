@@ -9,29 +9,38 @@ const font = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: 'HEXA Servicios Integrales SAS',
-  description: 'Soluciones Integrales para Empresas Modernas',
+  title: 'HEXA Servicios Integrales SAS | Ingeniería y Proyectos',
+  description:
+    'Ofrecemos servicios integrales en gestión de proyectos, generación solar fotovoltaica (SFV), infraestructura eléctrica, frío industrial, climatización e informática para empresas.',
   keywords: [
-    'servicios integrales',
-    'desarrollo web',
-    'soluciones empresariales',
+    'gestión de proyectos',
+    'generación solar',
+    'fotovoltaica',
+    'SFV',
+    'infraestructura eléctrica industrial',
+    'frío industrial',
+    'climatización',
+    'informática industrial',
+    'consultoría de ingeniería',
+    'proyectos electromecánicos',
+    'eficiencia energética',
     'HEXA SAS',
-    'tecnología',
-    'consultoría',
   ],
   // themeColor: '#161616', // <-- ¡Esto se mueve!
-  metadataBase: new URL('https://example.com'),
+  metadataBase: new URL('https://hesaservicios.com'),
   openGraph: {
-    title: 'HEXA Servicios Integrales SAS',
-    description: 'Soluciones Integrales para Empresas Modernas',
+    title: 'HEXA Servicios Integrales SAS | Ingeniería y Proyectos',
+    description:
+      'Servicios de gestión de proyectos, generación solar, infraestructura eléctrica, frío industrial, climatización e informática.',
     type: 'website',
-    url: 'https://example.com',
+    url: 'https://hesaservicios.com',
     images: ['/logo-HEXA.png'],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'HEXA Servicios Integrales SAS',
-    description: 'Soluciones Integrales para Empresas Modernas',
+    title: 'HEXA Servicios Integrales SAS | Ingeniería y Proyectos',
+    description:
+      'Servicios de gestión de proyectos, generación solar, infraestructura eléctrica, frío industrial, climatización e informática.',
     images: ['/logo-HEXA.png'],
   },
 };
@@ -62,18 +71,17 @@ export default function RootLayout({
               '@context': 'https://schema.org',
               '@type': 'Organization',
               name: 'HEXA Servicios Integrales SAS',
-              url: 'https://example.com',
-              logo: 'https://example.com/logo-HEXA.png',
+              url: 'https://hesaservicios.com',
+              logo: 'https://hesaservicios.com/logo-HEXA.png',
               description: 'Soluciones Integrales para Empresas Modernas',
               contactPoint: {
                 '@type': 'ContactPoint',
-                telephone: '+1-XXX-XXX-XXXX',
+                telephone: '+543624306820',
                 contactType: 'Customer Service',
               },
               sameAs: [
-                'https://www.facebook.com/exampleHEXA',
-                'https://www.instagram.com/exampleHEXA',
-                'https://twitter.com/exampleHEXA',
+                'https://github.com/hexa',
+                'https://www.instagram.com/hexa',
               ],
             }),
           }}

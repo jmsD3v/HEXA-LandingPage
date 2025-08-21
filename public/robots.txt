@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow:
 
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://hesaservicios.com/sitemap.xml
