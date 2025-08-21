@@ -18,7 +18,7 @@ const DetailedServiceCard: React.FC<DetailedServiceCardProps> = ({
   cardData,
 }) => {
   return (
-    <Card className='h-full max-w-sm mx-auto bg-white/5 backdrop-blur-md border border-white/10 shadow-lg flex flex-col'>
+    <Card className='min-h-[300px] max-w-sm mx-auto bg-white/5 backdrop-blur-md border border-white/10 shadow-lg flex flex-col'>
       <CardHeader>
         <CardTitle className='text-xl font-bold text-teal-400'>
           {cardData.title}

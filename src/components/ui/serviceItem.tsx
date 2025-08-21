@@ -184,7 +184,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 
       {/* Texto */}
       <div
-        className={`md:w-[50%] h-[300px] flex flex-col justify-center items-center bg-stone-300 dark:bg-gray-900 dark:text-gray-400 rounded-md overflow-y-auto ${textPaddingClasses}`}
+        className={`md:w-[50%] h-[300px] flex flex-col justify-center items-center bg-stone-300 dark:bg-gray-900 dark:text-gray-400 rounded-md ${textPaddingClasses}`}
       >
         {!showContent ? (
           <div className='w-full px-6 animate-pulse space-y-4'>
@@ -198,7 +198,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
             <h2 className='text-3xl font-semibold text-gray-900 dark:text-white text-center'>
               {title}
             </h2>
-            <p className='text-md text-center mt-4 whitespace-pre-line leading-tight [&>br]:mb-1 [&>br]:mt-1'>
+            <p className='text-sm md:text-md text-center mt-4 whitespace-pre-line leading-tight [&>br]:mb-1 [&>br]:mt-1'>
               {description}
             </p>
           </>

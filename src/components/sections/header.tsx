@@ -56,7 +56,10 @@ export default function Header() {
           </div>
           <nav className='max-md:hidden'>
             <ul className='flex gap-10'>
-              <NavLinks onServiceClick={handleServiceClick} />
+              <NavLinks
+                onServiceClick={handleServiceClick}
+                className='min-w-[220px]'
+              />
             </ul>
           </nav>
         </div>
