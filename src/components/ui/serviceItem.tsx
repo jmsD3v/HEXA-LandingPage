@@ -142,7 +142,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
   const [minimumDelayPassed, setMinimumDelayPassed] = useState(false);
 
   const imageOrderClasses = isReversed ? 'md:order-last' : '';
-  const textPaddingClasses = 'md:p-4 p-0';
+  const textPaddingClasses = 'p-4 md:p-4';
 
   // Garantizar que el skeleton no dure para siempre
   useEffect(() => {
@@ -184,7 +184,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({
 
       {/* Texto */}
       <div
-        className={`md:w-[50%] h-[300px] flex flex-col justify-center items-center bg-stone-300 dark:bg-gray-900 dark:text-gray-400 rounded-md ${textPaddingClasses}`}
+        className={`md:w-[50%] h-[300px] flex flex-col justify-center items-center bg-stone-300 dark:bg-gray-900 dark:text-gray-400 rounded-md overflow-y-auto ${textPaddingClasses}`}
       >
         {!showContent ? (
           <div className='w-full px-6 animate-pulse space-y-4'>
