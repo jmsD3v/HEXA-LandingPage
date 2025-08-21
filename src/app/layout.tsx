@@ -34,14 +34,14 @@ export const metadata: Metadata = {
       'Servicios de gestión de proyectos, generación solar, infraestructura eléctrica, frío industrial, climatización e informática.',
     type: 'website',
     url: 'https://hesaservicios.com',
-    images: ['/logo-HEXA.png'],
+    images: ['https://hesaservicios.com/logo-HEXA.png'],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'HEXA Servicios Integrales SAS | Ingeniería y Proyectos',
     description:
       'Servicios de gestión de proyectos, generación solar, infraestructura eléctrica, frío industrial, climatización e informática.',
-    images: ['/logo-HEXA.png'],
+    images: ['https://hesaservicios.com/logo-HEXA.png'],
   },
 };
 
