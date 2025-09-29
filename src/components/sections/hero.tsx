@@ -9,22 +9,25 @@ export default function hero() {
       <section
         className='flex max-md:flex-col h-screen justify-center items-center relative'
       >
+        {/* Accessible main heading for SEO without altering current design */}
+        <h1 className='sr-only'>HEXA Servicios Integrales SAS: Ingeniería, Generación Solar Fotovoltaica y Proyectos</h1>
         <div className='absolute inset-0 z-0'>
           {' '}
           {/* agregado para que la imagen se quede atrás */}
           <Image
-            src='/hero.png'
+            src='/hero.webp'
             alt='Instalación de paneles solares en un techo'
             fill
             priority
             quality={80}
+            sizes='100vw'
             className='object-cover object-center'
           />
         </div>
         <div className='flex justify-center items-center max-md:h-auto py-8 md:py-0 md:h-full relative z-10'>
           {' '}
           <img
-            src='/logo-HEXA-hero.png'
+            src='/logo-HEXA-hero.webp'
             alt='Logo de HEXA Servicios Integrales'
             className='invert w-40 sm:w-48 md:w-56 lg:w-60 mx-auto md:mr-10 lg:mr-10 aspect-square object-contain'
             data-aos='fade-up'

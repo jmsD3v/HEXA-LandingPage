@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaFacebook, FaInstagram, FaTwitter } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaWhatsapp } from 'react-icons/fa';
+import { social } from '@/data/social';
 import Link from 'next/link';
 
 interface FooterLinkItem {
@@ -24,14 +25,14 @@ interface SocialLinkItem extends FooterLinkItem {
   icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
 }
 
+const waHref = social.find((s) => s.name === 'Whatsapp')?.href || 'https://wa.me/543624306820';
+const igHref = social.find((s) => s.name === 'Instagram')?.href || 'https://www.instagram.com/hexa.servicios';
+const liHref = social.find((s) => s.name === 'Linkedin')?.href || 'https://www.linkedin.com/company/hexa-servicios-integrales';
+
 const socialLinks: SocialLinkItem[] = [
-  { icon: FaFacebook, label: 'Facebook', href: 'https://facebook.com/example' },
-  {
-    icon: FaInstagram,
-    label: 'Instagram',
-    href: 'https://instagram.com/example',
-  },
-  { icon: FaTwitter, label: 'Twitter', href: 'https://twitter.com/example' },
+  { icon: FaWhatsapp, label: 'WhatsApp', href: waHref },
+  { icon: FaInstagram, label: 'Instagram', href: igHref },
+  { icon: FaLinkedin, label: 'LinkedIn', href: liHref },
 ];
 
 export default function Footer() {

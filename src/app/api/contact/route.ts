@@ -26,7 +26,7 @@ export async function POST(request: Request) {
 
     const emailHtml = `
       <div>
-        <h1>Nuevo mensaje de contacto de HesaServicios.com</h1>
+        <h1>Nuevo mensaje de contacto de HexaServicios.com</h1>
         <p><strong>Nombre:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</p>

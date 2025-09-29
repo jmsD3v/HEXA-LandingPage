@@ -8,27 +8,32 @@ export default function PageLoader() {
 
   useEffect(() => {
     let done = false;
-    const hide = () => {
-      if (!done) {
-        done = true;
-        setIsLoading(false);
-      }
+    const MIN_DISPLAY_MS = 1200; // asegurar que se vea la rotación
+    const MAX_TIMEOUT_MS = 3000; // seguridad por si 'load' se retrasa
+    const start = performance.now();
+
+    const hideAfterMin = () => {
+      if (done) return;
+      done = true;
+      const elapsed = performance.now() - start;
+      const remaining = Math.max(0, MIN_DISPLAY_MS - elapsed);
+      const timer = setTimeout(() => setIsLoading(false), remaining);
+      return () => clearTimeout(timer);
     };
 
-    // Fallback: hide quickly even if 'load' is slow (mobile friendly)
-    const timeout = setTimeout(hide, 800);
-
+    // Si ya cargó, respetar visibilidad mínima
     if (document.readyState === 'complete') {
-      // Page already loaded
-      setTimeout(hide, 0);
+      hideAfterMin();
     } else {
-      window.addEventListener('load', hide, { once: true });
+      const onLoad = () => hideAfterMin();
+      window.addEventListener('load', onLoad, { once: true });
+      // Fallback absoluto
+      const maxTimer = setTimeout(hideAfterMin, MAX_TIMEOUT_MS);
+      return () => {
+        clearTimeout(maxTimer);
+        window.removeEventListener('load', onLoad);
+      };
     }
-
-    return () => {
-      clearTimeout(timeout);
-      window.removeEventListener('load', hide);
-    };
   }, []);
 
   if (!isLoading) return null;
@@ -37,7 +42,7 @@ export default function PageLoader() {
     <div className='fixed inset-0 z-[60] backdrop-blur-none md:backdrop-blur-md bg-black/40 flex items-center justify-center transition-opacity duration-300'>
       <div className='animate-spin-slow'>
         <Image
-          src='/logo-HEXA.png'
+          src='/logo-HEXA.webp'
           alt='HEXA Loader'
           width={120}
           height={120}

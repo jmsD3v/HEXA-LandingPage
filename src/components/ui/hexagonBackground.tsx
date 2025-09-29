@@ -8,12 +8,12 @@ type HexagonData = {
 };
 
 const hexagons: HexagonData[] = [
-  { img: '/paneles3.jpg', alt: 'Generación SFV' },
-  { img: '/paneles.jpg', alt: 'Frío Industrial' },
-  { img: '/paneles2.jpg', alt: 'Climatización' },
-  { img: '/paneles4.jpg', alt: 'Redes e informática' },
-  { img: '/paneles5.jpg', alt: 'Seguridad Eléctrica' },
-  { img: '/paneles6.jpg', alt: 'Gestión de proyectos' },
+  { img: '/paneles3.webp', alt: 'Generación SFV' },
+  { img: '/paneles.webp', alt: 'Frío Industrial' },
+  { img: '/paneles2.webp', alt: 'Climatización' },
+  { img: '/paneles4.webp', alt: 'Redes e informática' },
+  { img: '/paneles5.webp', alt: 'Seguridad Eléctrica' },
+  { img: '/paneles6.webp', alt: 'Gestión de proyectos' },
 ];
 
 export default function HexagonBackground() {
@@ -23,7 +23,7 @@ export default function HexagonBackground() {
         {/* Hexágono central con logo */}
         <div className='absolute w-32 h-32 md:w-40 md:h-40 hexagon bg-white flex items-center justify-center shadow-md z-10'>
           <Image
-            src='/logo-HEXA.png'
+            src='/logo-HEXA.webp'
             alt='Logo HEXA'
             width={100}
             height={100}
