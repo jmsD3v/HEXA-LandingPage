@@ -121,8 +121,10 @@ export default function Contact() {
                   href={item.href}
                   target='_blank'
                   rel='noopener noreferrer'
+                  aria-label={item.name}
                   className='text-neutral-200 hover:text-purple-500 transition-colors'
                 >
+                  <span className='sr-only'>{item.name}</span>
                   <Icon icon={item.icon} className='size-8' />
                 </a>
               ))}
@@ -144,6 +146,7 @@ export default function Contact() {
                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none focus:border-purple-500'
                   value={name}
                   onChange={(e) => setName(e.target.value)}
+                  autoComplete='name'
                   required
                 />
               </div>
@@ -160,6 +163,7 @@ export default function Contact() {
                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none focus:border-purple-500'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  autoComplete='email'
                   required
                 />
               </div>
@@ -176,6 +180,7 @@ export default function Contact() {
                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none focus:border-purple-500'
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
+                  autoComplete='tel'
                 />
               </div>
 
@@ -190,6 +195,7 @@ export default function Contact() {
                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none h-24 focus:border-purple-500'
                   value={message}
                   onChange={(e) => setMessage(e.target.value)}
+                  autoComplete='off'
                   required
                 ></textarea>
               </div>

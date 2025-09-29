@@ -36,21 +36,26 @@ export default function Header() {
         }`}
       >
         <div className='container flex items-center justify-between p-2 w-full md:w-auto duration-300'>
-          <div className='flex items-center justify-between w-full md:w-auto'>
-            <button
-              onClick={() => window.location.reload()}
-              className='flex items-center size-7 mr-2 hover:cursor-pointer hover:scale-110 hover:opacity-80 transition-transform duration-200'
-            >
-              <img
-                src='logo-HEXA.png'
-                alt='Logo HEXA'
-                className='w-full h-full invert'
-              />
-            </button>
-            <span className='max-md:hidden text-3xl md:text-2xl xl:text-2xl font-bold text-neutral-200 mb-1 hover:scale-110 hover:opacity-80 transition-transform duration-200'>
-              <span className='text-white'>HEXA</span>
-            </span>
-            <div className='md:hidden'>
+          <div className='flex items-center w-full md:w-auto'>
+            {/* Left: Logo + Brand together */}
+            <div className='flex items-center'>
+              <button
+                onClick={() => window.location.reload()}
+                aria-label='Ir al inicio'
+                className='flex items-center size-7 mr-2 hover:cursor-pointer hover:scale-110 hover:opacity-80 transition-transform duration-200'
+              >
+                <img
+                  src='logo-HEXA.png'
+                  alt='Logo HEXA'
+                  className='w-full h-full invert'
+                />
+              </button>
+              <span className='ml-1 text-2xl md:text-2xl xl:text-2xl font-bold text-neutral-200 mb-1 hover:scale-110 hover:opacity-80 transition-transform duration-200'>
+                <span className='text-white'>HEXA</span>
+              </span>
+            </div>
+            {/* Right: Mobile menu (hamburger) pushed to the far right */}
+            <div className='md:hidden ml-auto'>
               <SheetItem onServiceClick={handleServiceClick} />
             </div>
           </div>

@@ -9,11 +9,28 @@ import { useEffect } from 'react';
 
 export default function Page() {
   useEffect(() => {
-    AOS.init({
-      duration: 1000,
-      once: true,
-    });
-    AOS.refresh();
+    const initAOS = () => {
+      AOS.init({ duration: 1000, once: true });
+      AOS.refresh();
+    };
+
+    const onLoad = () => {
+      if ('requestIdleCallback' in window) {
+        // @ts-ignore
+        window.requestIdleCallback(initAOS);
+      } else {
+        // Small timeout to yield to critical UI
+        setTimeout(initAOS, 100);
+      }
+    };
+
+    if (document.readyState === 'complete') {
+      onLoad();
+    } else {
+      window.addEventListener('load', onLoad, { once: true });
+    }
+
+    return () => window.removeEventListener('load', onLoad);
   }, []);
 
   return (

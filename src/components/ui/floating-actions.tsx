@@ -24,7 +24,7 @@ export default function FloatingActions() {
         <button
           aria-label='Cerrar menú WhatsApp'
           onClick={() => setWaMenuOpen(false)}
-          className='fixed inset-0 bg-transparent z40 cursor-default'
+          className='fixed inset-0 bg-transparent z-40 cursor-default'
         />
       )}
 
@@ -45,8 +45,10 @@ export default function FloatingActions() {
                 href={item.href}
                 target='_blank'
                 rel='noopener noreferrer'
+                aria-label={item.name}
                 className='flex justify-center items-center bg-gray-700/80 hover:bg-gray-700 rounded-full w-12 h-12 shadow'
               >
+                <span className='sr-only'>{item.name}</span>
                 <Icon icon={item.icon} className='size-6 text-neutral-100' />
               </Link>
             ))}
