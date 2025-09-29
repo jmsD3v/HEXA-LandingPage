@@ -47,8 +47,8 @@ export default function Header() {
                 className='w-full h-full invert'
               />
             </button>
-            <span className='max-md:hidden text-3xl md:text-2xl xl:text-2xl font-bold text-neutral-200'>
-              <span className='text-teal-700'>HEXA</span>
+            <span className='max-md:hidden text-3xl md:text-2xl xl:text-2xl font-bold text-neutral-200 mb-1 hover:scale-110 hover:opacity-80 transition-transform duration-200'>
+              <span className='text-white'>HEXA</span>
             </span>
             <div className='md:hidden'>
               <SheetItem onServiceClick={handleServiceClick} />

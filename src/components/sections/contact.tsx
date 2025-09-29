@@ -1,152 +1,4 @@
-// export default function Contact() {
-//   return (
-//     <>
-//       <section
-//         className='bg-primary min-h-screen py-10 h-full flex items-center text-white px-4 md:px-10 lg:px-20'
-//         data-aos='fade-up'
-//         data-aos-duration={1000}
-//         data-aos-easing='ease-in-out'
-//       >
-//         <div className='max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center'>
-//           {/*<!-- Left Side: Contact Details -->*/}
-//           <div>
-//             <h2 className='text-3xl md:text-4xl font-bold leading-tight'>
-//               Tenes algún proyecto en mente? <br />
-//               <span className='text-gray-300'>
-//                 Por favor déjanos un mensaje.
-//               </span>
-//             </h2>
-//             <p className='mt-4 text-gray-400'>
-//               Contáctenos y déjanos saber cómo ayudarte. Completa el formulario
-//               y nos pondremos en contacto contigo lo antes posible.
-//             </p>
-
-//             <div className='mt-6 space-y-4'>
-//               <div className='flex items-start space-x-4'>
-//                 <span className='text-xl text-gray-400'>📍</span>
-//                 <div>
-//                   <p className='font-semibold'>Dirección:</p>
-//                   <p className='text-gray-400'>
-//                     Qta 27 Mza 27 Fontana, Chaco (3514)
-//                   </p>
-//                 </div>
-//               </div>
-
-//               <div className='flex items-start space-x-4'>
-//                 <span className='text-xl text-gray-400'>📞</span>
-//                 <div>
-//                   <p className='font-semibold'>Teléfono:</p>
-//                   <p className='text-gray-400'> +54 362 430 6820 </p>
-//                 </div>
-//               </div>
-
-//               <div className='flex items-start space-x-4'>
-//                 <span className='text-xl text-gray-400'>✉️</span>
-//                 <div>
-//                   <p className='font-semibold'>Email:</p>
-//                   <p className='text-gray-400'>support@hexa.tech</p>
-//                 </div>
-//               </div>
-//             </div>
-
-//             {/*<!-- Social Icons -->*/}
-//             <div className='mt-6 flex justify-center lg:justify-start gap-4'>
-//               <a
-//                 href='#'
-//                 className='group relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 text-neutral-200 hover:w-32 transition-all overflow-hidden'
-//               >
-//                 <span className='hidden group-hover:inline whitespace-nowrap mr-2'>
-//                   GitHub
-//                 </span>
-//                 🐙
-//               </a>
-//               <a
-//                 href='#'
-//                 className='group relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-900 text-neutral-200 hover:w-36 transition-all overflow-hidden'
-//               >
-//                 <span className='hidden group-hover:inline whitespace-nowrap mr-2'>
-//                   LinkedIn
-//                 </span>
-//                 💼
-//               </a>
-//               <a
-//                 href='#'
-//                 className='group relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-blue-700 text-neutral-200 hover:w-36 transition-all overflow-hidden'
-//               >
-//                 <span className='hidden group-hover:inline whitespace-nowrap mr-2'>
-//                   Facebook
-//                 </span>
-//                 📘
-//               </a>
-//               <a
-//                 href='#'
-//                 className='group relative inline-flex h-10 w-10 items-center justify-center rounded-full bg-red-800 text-neutral-200 hover:w-36 transition-all overflow-hidden'
-//               >
-//                 <span className='hidden group-hover:inline whitespace-nowrap mr-2'>
-//                   YouTube
-//                 </span>
-//                 ▶️
-//               </a>
-//             </div>
-//           </div>
-
-//           {/*<!-- Right Side: Contact Form -->*/}
-//           <div className='bg-gray-800 p-8 rounded-xl shadow-lg'>
-//             <form>
-//               <div className='mb-4'>
-//                 <label className='block text-gray-400 mb-2'>Nombre</label>
-//                 <input
-//                   type='text'
-//                   placeholder='e.j. Juan Perez'
-//                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none'
-//                 />
-//               </div>
-
-//               <div className='mb-4'>
-//                 <label className='block text-gray-400 mb-2'>
-//                   Email<span className='text-xs'></span>
-//                 </label>
-//                 <input
-//                   type='email'
-//                   placeholder='e.j. juanperez@mail.com'
-//                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none'
-//                 />
-//               </div>
-
-//               <div className='mb-4'>
-//                 <label className='block text-gray-400 mb-2'>Teléfono</label>
-//                 <input
-//                   type='tel'
-//                   placeholder='Número de Teléfono'
-//                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none'
-//                 />
-//               </div>
-
-//               <div className='mb-4'>
-//                 <label className='block text-gray-400 mb-2'>
-//                   Mensaje<span className='text-xs'></span>
-//                 </label>
-//                 <textarea
-//                   placeholder='Escriba su mensaje...'
-//                   className='w-full px-4 py-3 bg-gray-700 text-white rounded-lg border border-gray-600 outline-none h-24'
-//                 ></textarea>
-//               </div>
-
-//               <button
-//                 type='submit'
-//                 className='w-full bg-white text-gray-900 font-semibold py-3 rounded-lg hover:bg-gray-300 transition'
-//               >
-//                 Enviar Mensaje
-//               </button>
-//             </form>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   );
-// }
-
-'use client'; // Required for useState and event handlers
+'use client'; 
 
 import { useState, FormEvent } from 'react';
 import { social } from '@/data/social';
@@ -158,7 +10,7 @@ export default function Contact() {
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
   const [loading, setLoading] = useState(false);
-  const [formStatus, setFormStatus] = useState(''); // '', 'success', 'error'
+  const [formStatus, setFormStatus] = useState(''); 
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -231,7 +83,7 @@ export default function Contact() {
                 <div>
                   <p className='font-semibold'>Dirección:</p>
                   <p className='text-gray-400'>
-                    Qta 27 Mza 27 Fontana, Chaco (3514)
+                    José Hernandez 938, Resistencia, Chaco.
                   </p>
                 </div>
               </div>
@@ -241,6 +93,14 @@ export default function Contact() {
                 <div>
                   <p className='font-semibold'>Teléfono:</p>
                   <p className='text-gray-400'> +54 362 430 6820 </p>
+                </div>
+              </div>
+
+              <div className='flex items-start space-x-4'>
+                <span className='text-xl text-gray-400'>📞</span>
+                <div>
+                  <p className='font-semibold'>Teléfono Servicio Técnico:</p>
+                  <p className='text-gray-400'> +54 362 466 6877 </p>
                 </div>
               </div>
 

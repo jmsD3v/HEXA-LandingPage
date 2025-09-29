@@ -1,13 +1,8 @@
 const phone = '+543624306820';
-const message = 'Hello! I saw your portfolio and would like to chat!';
+const message = 'Hola, vengo de su página web, me gustaría contactarlos';
 const encodedMessage = encodeURIComponent(message);
 
 export const social = [
-  {
-    name: 'Github',
-    href: 'https://github.com/hexa',
-    icon: 'mdi:github',
-  },
   {
     name: 'Whatsapp',
     href: `https://wa.me/${phone}?text=${encodedMessage}`,
@@ -15,7 +10,12 @@ export const social = [
   },
   {
     name: 'Instagram',
-    href: 'https://www.instagram.com/hexa',
+    href: 'https://www.instagram.com/hexa.servicios',
     icon: 'mdi:instagram',
+  },
+  {
+    name: 'Linkedin',
+    href: 'https://www.linkedin.com/company/hexa-servicios-integrales',
+    icon: 'mdi:linkedin',
   },
 ];
