@@ -1,7 +1,5 @@
 'use client';
 
-import Image from 'next/image';
-
 type HexagonData = {
   img: string;
   alt: string;
@@ -22,13 +20,10 @@ export default function HexagonBackground() {
       <div className='relative w-[500px] h-[500px] md:w-[700px] md:h-[700px]'>
         {/* Hexágono central con logo */}
         <div className='absolute w-32 h-32 md:w-40 md:h-40 hexagon bg-white flex items-center justify-center shadow-md z-10'>
-          <Image
-            src='/logo-HEXA.webp'
-            alt='Logo HEXA'
-            width={100}
-            height={100}
-            className='object-contain'
-          />
+          <picture className='w-24 h-24 md:w-28 md:h-28'>
+            <source srcSet='/logo-HEXA-white.webp' media='(prefers-color-scheme: dark)' />
+            <img src='/logo-HEXA.webp' alt='Logo HEXA' className='w-full h-full object-contain' />
+          </picture>
         </div>
 
         {/* Hexágonos exteriores */}

@@ -45,11 +45,10 @@ export default function Header() {
                 aria-label='Ir al inicio'
                 className='flex items-center size-7 mr-2 hover:cursor-pointer hover:scale-110 hover:opacity-80 transition-transform duration-200'
               >
-                <img
-                  src='logo-HEXA.webp'
-                  alt='Logo HEXA'
-                  className='w-full h-full invert'
-                />
+                <picture className='w-full h-full'>
+                  <source srcSet='/logo-HEXA-white.webp' media='(prefers-color-scheme: dark)' />
+                  <img src='/logo-HEXA.webp' alt='Logo HEXA' className='w-full h-full' />
+                </picture>
               </Link>
               <span className='ml-1 text-2xl md:text-2xl xl:text-2xl font-bold text-neutral-200 mb-1 hover:scale-110 hover:opacity-80 transition-transform duration-200'>
                 <span className='text-white'>HEXA</span>
