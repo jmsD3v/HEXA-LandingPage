@@ -7,7 +7,7 @@ export default function hero() {
     <>
       <Header />
       <section
-        className='flex max-md:flex-col h-screen justify-center items-center relative'
+        className='flex max-md:flex-col h-[100dvh] justify-center items-center relative'
       >
         {/* Accessible main heading for SEO without altering current design */}
         <h1 className='sr-only'>HEXA Servicios Integrales SAS: Ingeniería, Generación Solar Fotovoltaica y Proyectos</h1>

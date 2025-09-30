@@ -12,7 +12,7 @@ export default function NotFound() {
         noFollow
         image="/logo-HEXA.webp"
       />
-      <main className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0f0f0f] via-[#141414] to-[#1a1a1a] text-white">
+      <main className="min-h-[100dvh] flex items-center justify-center bg-gradient-to-b from-[#0f0f0f] via-[#141414] to-[#1a1a1a] text-white">
         <SolarNotFound />
       </main>
     </>

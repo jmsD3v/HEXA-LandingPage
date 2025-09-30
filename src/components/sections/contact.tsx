@@ -58,7 +58,7 @@ export default function Contact() {
   return (
     <>
       <section
-        className='bg-primary min-h-screen py-10 h-full flex items-center text-white px-4 md:px-10 lg:px-20'
+        className='bg-primary min-h-[100dvh] py-10 flex items-center text-white px-4 md:px-10 lg:px-20'
         data-aos='fade-up'
         data-aos-duration={1000}
         data-aos-easing='ease-in-out'
