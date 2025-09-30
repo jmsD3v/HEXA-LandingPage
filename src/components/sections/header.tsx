@@ -47,6 +47,7 @@ export default function Header() {
               >
                 <picture className='w-full h-full'>
                   <source srcSet='/logo-HEXA-white.webp' media='(prefers-color-scheme: dark)' />
+                  <source srcSet='/logo-HEXA.webp' media='(prefers-color-scheme: light)' />
                   <img src='/logo-HEXA.webp' alt='Logo HEXA' className='w-full h-full' />
                 </picture>
               </Link>

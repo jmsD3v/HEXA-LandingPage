@@ -23,6 +23,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang='es' suppressHydrationWarning>
+      <head>
+        <meta name='color-scheme' content='light dark' />
+      </head>
       <body
         className={`${font.className} antialiased`}
         style={{ fontFamily: 'var(--font-montserrat)' }}
