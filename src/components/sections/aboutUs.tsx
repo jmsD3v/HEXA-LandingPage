@@ -1,4 +1,3 @@
-import React from 'react';
 import TeamMemberCarousel from '@/components/ui/teamMembersCarousel';
 import { EmblaOptionsType } from 'embla-carousel';
 
