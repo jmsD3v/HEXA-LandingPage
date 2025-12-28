@@ -21,9 +21,8 @@ const ServiceCard: React.FC<ServiceCardProps> = ({ service }) => {
           <Image
             src={service.image}
             alt={service.title}
-            layout='fill'
-            objectFit='cover'
-            className='rounded-t-lg'
+            fill
+            className='rounded-t-lg object-cover'
           />
         </div>
         <CardTitle className='text-xl font-semibold text-white'>

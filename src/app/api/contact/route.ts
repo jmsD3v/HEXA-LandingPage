@@ -3,6 +3,20 @@ import { Resend } from 'resend';
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const escapeHtml = (str: string) => {
+  if (!str) return '';
+  return str.replace(/[&<>"']/g, (tag) => {
+    const chars: { [key: string]: string } = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return chars[tag] || tag;
+  });
+};
+
 export async function POST(request: Request) {
   try {
     const { name, email, phone, message } = await request.json();
@@ -24,24 +38,30 @@ export async function POST(request: Request) {
       );
     }
 
+    // Sanitize inputs
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safePhone = escapeHtml(phone);
+    const safeMessage = escapeHtml(message);
+
     const emailHtml = `
       <div>
         <h1>Nuevo mensaje de contacto de HexaServicios.com</h1>
-        <p><strong>Nombre:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Teléfono:</strong> ${phone || 'No proporcionado'}</p>
+        <p><strong>Nombre:</strong> ${safeName}</p>
+        <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Teléfono:</strong> ${safePhone || 'No proporcionado'}</p>
         <hr>
         <h2>Mensaje:</h2>
-        <p>${message}</p>
+        <p>${safeMessage}</p>
       </div>
     `;
 
     const { data, error } = await resend.emails.send({
       from: 'Hesa Servicios <web@hexaservicios.com>',
       to: ['contacto@hexaservicios.com'],
-      subject: `Nuevo mensaje de contacto de: ${name}`,
+      subject: `Nuevo mensaje de contacto de: ${safeName}`,
       html: emailHtml,
-      replyTo: email,
+      replyTo: email, // Use original email for reply-to as it's a header
     });
 
     if (error) {

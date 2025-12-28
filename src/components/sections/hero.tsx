@@ -19,7 +19,7 @@ export default function hero() {
             alt='Instalación de paneles solares en un techo'
             fill
             priority
-            quality={80}
+            quality={75}
             sizes='100vw'
             className='object-cover object-center'
           />
