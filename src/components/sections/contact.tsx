@@ -275,7 +275,8 @@ export default function Contact() {
                 <div ref={turnstileRef} />
                 {!siteKey && (
                   <p className='mt-2 text-sm text-red-400'>
-                    Falta configurar TURNSTILE_SITE_KEY.
+                    Falta configurar NEXT_PUBLIC_TURNSTILE_SITE_KEY (o
+                    TURNSTILE_SITE_KEY).
                   </p>
                 )}
               </div>

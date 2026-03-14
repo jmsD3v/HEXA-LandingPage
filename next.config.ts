@@ -40,6 +40,12 @@ const securityHeaders = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  env: {
+    NEXT_PUBLIC_TURNSTILE_SITE_KEY:
+      process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ??
+      process.env.TURNSTILE_SITE_KEY ??
+      '',
+  },
   async headers() {
     return [
       {
