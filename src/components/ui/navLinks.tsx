@@ -1,5 +1,4 @@
 import * as DropdownMenu from '@radix-ui/react-dropdown-menu';
-import Link from 'next/link';
 import { services } from '@/data/services';
 import { ChevronDown } from 'lucide-react';
 
@@ -16,10 +15,12 @@ export default function NavLinks({
   onServiceClick,
   className,
 }: NavLinksProps) {
-  const handleLinkClick = () => {
-    if (onLinkClick) {
-      onLinkClick();
+  const scrollToSection = (id: string) => {
+    const el = document.getElementById(id);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
     }
+    if (onLinkClick) onLinkClick();
   };
 
   const linkClassName =
@@ -28,13 +29,12 @@ export default function NavLinks({
   return (
     <>
       <li className='flex items-center gap-1'>
-        <Link
-          href='#ServicesSection'
-          onClick={handleLinkClick}
+        <button
+          onClick={() => scrollToSection('ServicesSection')}
           className={linkClassName}
         >
           Servicios
-        </Link>
+        </button>
         <DropdownMenu.Root modal={false}>
           <DropdownMenu.Trigger asChild>
             <button className='p-1 rounded-full hover:bg-gray-700'>
@@ -44,7 +44,7 @@ export default function NavLinks({
           <DropdownMenu.Content
             className={cn(
               'bg-gray-800 border border-gray-700 text-white p-2 rounded-md shadow-lg',
-              className
+              className,
             )}
           >
             <DropdownMenu.Arrow className='fill-current text-gray-800' />
@@ -61,27 +61,28 @@ export default function NavLinks({
         </DropdownMenu.Root>
       </li>
       <li className=''>
-        <Link href='#whyUs' onClick={handleLinkClick} className={linkClassName}>
+        <button
+          onClick={() => scrollToSection('whyUs')}
+          className={linkClassName}
+        >
           ¿Por qué nosotros?
-        </Link>
+        </button>
       </li>
       <li className=''>
-        <Link
-          href='#aboutUs'
-          onClick={handleLinkClick}
+        <button
+          onClick={() => scrollToSection('aboutUs')}
           className={linkClassName}
         >
           Sobre Nosotros
-        </Link>
+        </button>
       </li>
       <li className=''>
-        <Link
-          href='#contact'
-          onClick={handleLinkClick}
+        <button
+          onClick={() => scrollToSection('contact')}
           className={linkClassName}
         >
           Contacto
-        </Link>
+        </button>
       </li>
     </>
   );
