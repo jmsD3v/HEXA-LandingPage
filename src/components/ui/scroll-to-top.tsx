@@ -1,5 +1,5 @@
 'use client';
-import { Icon } from '@iconify/react/dist/iconify.js';
+import { Icon } from '@iconify/react';
 import { useEffect, useState } from 'react';
 
 type Props = {
@@ -11,7 +11,11 @@ type Props = {
   useFixed?: boolean;
 };
 
-export default function ScrollToTop({ offset = 0, rightOffset = 0, useFixed = true }: Props) {
+export default function ScrollToTop({
+  offset = 0,
+  rightOffset = 0,
+  useFixed = true,
+}: Props) {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -34,7 +38,9 @@ export default function ScrollToTop({ offset = 0, rightOffset = 0, useFixed = tr
   const baseBottomPx = 80 + offset;
   const baseRightPx = 20 + rightOffset;
 
-  const positionStyle = useFixed ? { bottom: baseBottomPx, right: baseRightPx } : undefined;
+  const positionStyle = useFixed
+    ? { bottom: baseBottomPx, right: baseRightPx }
+    : undefined;
   const positionClass = useFixed ? 'fixed' : '';
 
   return (

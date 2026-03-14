@@ -1,16 +1,57 @@
-'use client'; 
+'use client';
 
-import { useState, FormEvent } from 'react';
+import { useEffect, useRef, useState, FormEvent } from 'react';
+import Script from 'next/script';
 import { social } from '@/data/social';
 import { Icon } from '@iconify/react';
+
+declare global {
+  interface Window {
+    turnstile?: {
+      render: (
+        container: HTMLElement,
+        options: Record<string, unknown>,
+      ) => string;
+      reset: (widgetId: string) => void;
+      remove: (widgetId: string) => void;
+    };
+  }
+}
 
 export default function Contact() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [phone, setPhone] = useState('');
   const [message, setMessage] = useState('');
+  const [company, setCompany] = useState('');
   const [loading, setLoading] = useState(false);
-  const [formStatus, setFormStatus] = useState(''); 
+  const [formStatus, setFormStatus] = useState('');
+  const [turnstileToken, setTurnstileToken] = useState('');
+  const [turnstileReady, setTurnstileReady] = useState(false);
+  const turnstileRef = useRef<HTMLDivElement>(null);
+  const widgetIdRef = useRef<string | null>(null);
+  const siteKey = process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY ?? '';
+  const submittedAtRef = useRef<number>(Date.now());
+
+  useEffect(() => {
+    if (!turnstileReady || !siteKey || !turnstileRef.current) return;
+    if (!window.turnstile || widgetIdRef.current) return;
+
+    widgetIdRef.current = window.turnstile.render(turnstileRef.current, {
+      sitekey: siteKey,
+      callback: (token: string) => setTurnstileToken(token),
+      'expired-callback': () => setTurnstileToken(''),
+      'error-callback': () => setTurnstileToken(''),
+      theme: 'dark',
+    });
+
+    return () => {
+      if (widgetIdRef.current && window.turnstile) {
+        window.turnstile.remove(widgetIdRef.current);
+        widgetIdRef.current = null;
+      }
+    };
+  }, [turnstileReady, siteKey]);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -22,6 +63,9 @@ export default function Contact() {
       email,
       phone,
       message,
+      company,
+      turnstileToken,
+      submittedAt: submittedAtRef.current,
     };
 
     try {
@@ -39,12 +83,17 @@ export default function Contact() {
         setEmail('');
         setPhone('');
         setMessage('');
+        setTurnstileToken('');
+        submittedAtRef.current = Date.now();
+        if (widgetIdRef.current && window.turnstile) {
+          window.turnstile.reset(widgetIdRef.current);
+        }
       } else {
         const errorData = await response.json();
         setFormStatus('error');
         console.error(
           'Error sending message:',
-          errorData.message || 'Server error'
+          errorData.message || 'Server error',
         );
       }
     } catch (error) {
@@ -133,7 +182,29 @@ export default function Contact() {
 
           {/*<!-- Right Side: Contact Form -->*/}
           <div className='bg-gray-800 p-8 rounded-xl shadow-lg'>
+            <Script
+              src='https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit'
+              strategy='afterInteractive'
+              onLoad={() => setTurnstileReady(true)}
+            />
             <form onSubmit={handleSubmit}>
+              <div className='hidden' aria-hidden='true'>
+                <label htmlFor='company'>Company</label>
+                <input
+                  type='text'
+                  id='company'
+                  name='company'
+                  value={company}
+                  onChange={(e) => setCompany(e.target.value)}
+                  tabIndex={-1}
+                  autoComplete='off'
+                />
+                <input
+                  type='hidden'
+                  name='submittedAt'
+                  value={submittedAtRef.current}
+                />
+              </div>
               <div className='mb-4'>
                 <label htmlFor='name' className='block text-gray-400 mb-2'>
                   Nombre
@@ -200,6 +271,15 @@ export default function Contact() {
                 ></textarea>
               </div>
 
+              <div className='mb-4'>
+                <div ref={turnstileRef} />
+                {!siteKey && (
+                  <p className='mt-2 text-sm text-red-400'>
+                    Falta configurar TURNSTILE_SITE_KEY.
+                  </p>
+                )}
+              </div>
+
               {formStatus === 'success' && (
                 <p className='mb-4 text-green-500'>
                   Mensaje enviado con éxito!
@@ -214,7 +294,7 @@ export default function Contact() {
               <button
                 type='submit'
                 className='w-full bg-white text-gray-900 font-semibold py-3 rounded-lg hover:bg-gray-300 transition disabled:opacity-50'
-                disabled={loading}
+                disabled={loading || !turnstileToken}
               >
                 {loading ? 'Enviando...' : 'Enviar Mensaje'}
               </button>

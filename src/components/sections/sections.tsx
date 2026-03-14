@@ -8,7 +8,7 @@ import AboutUs from '@/components/sections/aboutUs';
 import Contact from '@/components/sections/contact';
 import Footer from '@/components/sections/footer';
 
-const SHOW_NEW_FEATURES = false;
+const SHOW_NEW_FEATURES = true;
 
 export default function Sections() {
   return (
