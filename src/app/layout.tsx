@@ -1,4 +1,5 @@
-import type { Viewport } from 'next'; // Importa Viewport
+import type { Metadata, Viewport } from 'next'; // Importa Viewport
+import { defaultSeo } from '@/lib/seo';
 import { Montserrat } from 'next/font/google';
 import './globals.css';
 
@@ -7,7 +8,9 @@ const font = Montserrat({
   subsets: ['latin'],
 });
 
-// SEO metadata será gestionado por componentes Seo/seo.ts a nivel de página
+// SEO: el componente Seo usa next/head, que en el App Router no escribe nada en
+// el <head>. El título, la descripción y Open Graph salen de acá (lib/seo.ts).
+export const metadata: Metadata = defaultSeo;
 
 // ---
 // Nueva Exportación para Viewport
